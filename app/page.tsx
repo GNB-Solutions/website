@@ -1,4 +1,6 @@
 import Link from "next/link";
+import TradeDeskShowcase from "./components/TradeDeskShowcase";
+import BuyeeShowcase from "./components/BuyeeShowcase";
 
 const products = [
   {
@@ -8,7 +10,7 @@ const products = [
       "A self-hosted app for managing eBay lot trading. Track lots, log sales, auto-sync orders nightly via the eBay API, and get a clear picture of your P&L across every batch you buy and sell.",
     tags: ["eBay API", "Self-hosted", "Next.js", "PostgreSQL"],
     href: "https://github.com/GNB-Solutions/tradedesk",
-    cta: "View on GitHub",
+    showcase: <TradeDeskShowcase />,
   },
   {
     name: "Buyee Scraper",
@@ -17,7 +19,7 @@ const products = [
       "Scrape Buyee.jp and its 10 sub-sites — Yahoo Auctions, Mercari, Rakuten and more. Comes with a live dashboard, CLI filtering, JSON export, and a client request form for prospective customers.",
     tags: ["Node.js", "Express", "SSE", "10 sub-sites"],
     href: "https://github.com/GNB-Solutions/buyee-scraper",
-    cta: "View on GitHub",
+    showcase: <BuyeeShowcase />,
   },
 ];
 
@@ -33,10 +35,7 @@ export default function Home() {
             </span>
             <span className="font-semibold text-slate-900 tracking-tight">Solutions</span>
           </div>
-          <a
-            href="mailto:contact@gnbsolutions.com"
-            className="text-sm font-medium text-[#7C3AED]"
-          >
+          <a href="mailto:contact@gnbsolutions.com" className="text-sm font-medium text-[#7C3AED]">
             Get in touch
           </a>
         </div>
@@ -57,25 +56,21 @@ export default function Home() {
       </section>
 
       {/* Products */}
-      <section className="max-w-5xl mx-auto px-6 pb-24">
-        <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-400 mb-6">Products</h2>
-        <div className="grid sm:grid-cols-2 gap-6">
-          {products.map((p) => (
-            <div
-              key={p.name}
-              className="border border-slate-200 rounded-xl p-6 flex flex-col gap-4 hover:shadow-md transition-shadow"
-            >
+      <section className="max-w-5xl mx-auto px-6 pb-24 flex flex-col gap-20">
+        <h2 className="text-xs font-semibold uppercase tracking-widest text-slate-400 -mb-14">Products</h2>
+
+        {products.map((p, i) => (
+          <div key={p.name} className={`flex flex-col ${i % 2 === 1 ? "lg:flex-row-reverse" : "lg:flex-row"} gap-10 items-start`}>
+            {/* info */}
+            <div className="lg:w-80 shrink-0 flex flex-col gap-4 lg:pt-2">
               <div>
-                <h3 className="text-xl font-bold text-slate-900 mb-1">{p.name}</h3>
+                <h3 className="text-2xl font-bold text-slate-900 mb-1">{p.name}</h3>
                 <p className="text-sm font-medium text-[#7C3AED]">{p.tagline}</p>
               </div>
-              <p className="text-slate-500 text-sm leading-relaxed flex-1">{p.description}</p>
+              <p className="text-slate-500 text-sm leading-relaxed">{p.description}</p>
               <div className="flex flex-wrap gap-2">
                 {p.tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs font-medium px-2 py-0.5 rounded-full bg-[#F5F3FF] text-[#6D28D9]"
-                  >
+                  <span key={t} className="text-xs font-medium px-2 py-0.5 rounded-full bg-[#F5F3FF] text-[#6D28D9]">
                     {t}
                   </span>
                 ))}
@@ -84,13 +79,19 @@ export default function Home() {
                 href={p.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-sm font-semibold text-[#7C3AED] mt-auto"
+                className="inline-flex items-center gap-1 text-sm font-semibold text-[#7C3AED]"
               >
-                {p.cta} →
+                View on GitHub →
               </Link>
             </div>
-          ))}
-        </div>
+
+            {/* showcase */}
+            <div className="flex-1 w-full min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-widest text-slate-300 mb-3">Live demo</p>
+              {p.showcase}
+            </div>
+          </div>
+        ))}
       </section>
 
       {/* Contact */}
