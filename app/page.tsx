@@ -19,6 +19,15 @@ const products = [
     href: "https://github.com/GNB-Solutions/buyee-scraper",
     cta: "View on GitHub",
   },
+  {
+    name: "GameOn",
+    tagline: "Esports tournament platform",
+    description:
+      "Tournament platform for Valorant and Rocket League. Players join free or paid brackets, submit match scores, and earn GameCoins they can redeem for gift cards.",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "Better Auth"],
+    href: "https://github.com/GNB-Solutions/game-on",
+    cta: "View on GitHub",
+  },
 ];
 
 export default function Home() {
