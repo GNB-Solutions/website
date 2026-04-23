@@ -9,7 +9,9 @@ const players = [
   { name: "BlitzKrieg", rating: 1870, avatar: "B" },
 ];
 
-const bracket = [
+type Match = { round: string; p1: string | null; p2: string | null; s1: number | null; s2: number | null; done: boolean };
+
+const bracket: Match[] = [
   { round: "Semi 1", p1: "xNova", p2: "BlitzKrieg", s1: 2, s2: 0, done: true },
   { round: "Semi 2", p1: "ShadowRift", p2: "AceVenom", s1: null, s2: null, done: false },
   { round: "Final", p1: null, p2: null, s1: null, s2: null, done: false },
