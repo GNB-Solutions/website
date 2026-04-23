@@ -3,17 +3,18 @@
 import { useState } from "react";
 
 const players = [
-  { name: "xNova", rating: 2140, avatar: "N" },
-  { name: "ShadowRift", rating: 1985, avatar: "S" },
-  { name: "AceVenom", rating: 2050, avatar: "A" },
-  { name: "BlitzKrieg", rating: 1870, avatar: "B" },
+  { name: "Doci_49", rating: 2140, avatar: "D" },
+  { name: "Csamz03", rating: 1985, avatar: "C" },
+  { name: "Bolt", rating: 2050, avatar: "B" },
+  { name: "Bxsil", rating: 1870, avatar: "X" },
+  { name: "Kevorkt", rating: 1920, avatar: "K" },
 ];
 
 type Match = { round: string; p1: string | null; p2: string | null; s1: number | null; s2: number | null; done: boolean };
 
 const bracket: Match[] = [
-  { round: "Semi 1", p1: "xNova", p2: "BlitzKrieg", s1: 2, s2: 0, done: true },
-  { round: "Semi 2", p1: "ShadowRift", p2: "AceVenom", s1: null, s2: null, done: false },
+  { round: "Semi 1", p1: "Doci_49", p2: "Bxsil", s1: 2, s2: 0, done: true },
+  { round: "Semi 2", p1: "Csamz03", p2: "Bolt", s1: null, s2: null, done: false },
   { round: "Final", p1: null, p2: null, s1: null, s2: null, done: false },
 ];
 
@@ -36,7 +37,7 @@ export default function GameOnShowcase() {
     // After a beat, populate the final
     setTimeout(() => {
       setMatches(prev => prev.map((m, i) =>
-        i === 2 ? { ...m, p1: "xNova", p2: "ShadowRift" } : m
+        i === 2 ? { ...m, p1: "Doci_49", p2: "Csamz03" } : m
       ));
     }, 800);
 

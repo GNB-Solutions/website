@@ -3,9 +3,9 @@
 import { useState } from "react";
 
 const initialLots = [
-  { id: "LOT-001", desc: "Apple AirPods & Earbuds — Grade B Returns", units: 30, sold: 17, cost: 250, revenue: 341.50, refunds: 0 },
-  { id: "LOT-002", desc: "Nike & Adidas Trainers — Grade A Returns", units: 40, sold: 14, cost: 400, revenue: 496.00, refunds: 0 },
-  { id: "LOT-003", desc: "PS5 Controllers & Headsets — Mixed", units: 15, sold: 2, cost: 450, revenue: 106.84, refunds: 0 },
+  { id: "LOT-001", desc: "Phone Cases — Mixed Brands", units: 50, sold: 38, cost: 120, revenue: 410, refunds: 0 },
+  { id: "LOT-002", desc: "Wireless Earbuds", units: 20, sold: 15, cost: 200, revenue: 285, refunds: 0 },
+  { id: "LOT-003", desc: "LED Desk Lamps", units: 12, sold: 9, cost: 90, revenue: 72, refunds: 0 },
 ];
 
 const syncResult = {
@@ -26,8 +26,8 @@ export default function TradeDeskShowcase() {
     setSyncing(true);
     await new Promise(r => setTimeout(r, 2000));
     setLots(prev => prev.map(l => {
-      if (l.id === "LOT-002") return { ...l, sold: l.sold + 2, revenue: l.revenue + 70 };
-      if (l.id === "LOT-003") return { ...l, refunds: 55, revenue: l.revenue - 55 };
+      if (l.id === "LOT-001") return { ...l, sold: l.sold + 2, revenue: l.revenue + 22 };
+      if (l.id === "LOT-003") return { ...l, refunds: 8, revenue: l.revenue - 8 };
       return l;
     }));
     setSyncing(false);
