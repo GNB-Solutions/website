@@ -5,10 +5,10 @@ import GameOnShowcase from "./components/GameOnShowcase";
 const products = [
   {
     name: "TradeDesk",
-    tagline: "Buy lots. Sell items. Track everything.",
+    tagline: "The all-in-one trading management platform.",
     description:
-      "A self-hosted platform for resellers who buy wholesale liquidation lots and sell individual items across marketplaces. Tracks every lot, sale, fee, return, and refund — giving you real P&L at a glance. Connects to eBay out of the box with a connector architecture built to expand to any marketplace.",
-    tags: ["eBay API", "Refund Tracking", "Next.js", "PostgreSQL", "Self-hosted"],
+      "Self-hosted platform for resellers and traders. Track wholesale lots, car flips, or any buy-and-sell business. eBay sync with automatic refund and cancellation detection, in-house AI for listing generation and invoice import, real-time analytics, and a modular architecture that expands to any marketplace.",
+    tags: ["eBay Sync", "In-House AI", "Car Flips", "Analytics", "Self-Hosted", "Mac App"],
     href: "https://github.com/GNB-Solutions/tradedesk",
     showcase: <TradeDeskShowcase />,
   },
